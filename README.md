@@ -1,6 +1,7 @@
 # aiseg_watch
 
 requires mysql module
+
     # npm install mysql
 
 aiseg_watch.sh example
