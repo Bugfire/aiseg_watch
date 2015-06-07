@@ -22,8 +22,9 @@ module.exports = {
         if (index + 1 >= queries.length) {
           client.end();
           callback();
+        } else {
+          sendQuery(index + 1);
         }
-        sendQuery(index + 1);
       };
       try {
         client.query(queries[index], function(err, result) {
