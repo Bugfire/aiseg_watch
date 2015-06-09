@@ -38,7 +38,7 @@ var gettimeofday = function() {
 }
 
 var fetchTop = function() {
-  fetch('/get/top.cgi?v=' + gettimeofday(), function (body) {
+  fetch('/get/top.cgi?v=' + gettimeofday(), function(body) {
     fetchMain();
   });
 }
@@ -52,7 +52,7 @@ var fetchMain = function() {
       v = parseFloat(v);
     return v;
   };
-  fetch('/get/top_val.cgi?poll=' + gettimeofday(), function (body) {
+  fetch('/get/top_val.cgi?poll=' + gettimeofday(), function(body) {
     var data = { time: new Date, mainValues: [], detailValues: [] };
 
     try {
@@ -63,7 +63,6 @@ var fetchMain = function() {
       console.log(e.message)
       return;
     }
-    detailNames = [];
     fetchDetail(data, 0);
   });
 };
@@ -73,13 +72,12 @@ var fetchDetail = function(data, index) {
     return (text.match(new RegExp('javascript:parent.' + keyname + ' = "(.*)";')))[1];
   };
 
-  fetch('/get/instantvaldata.cgi?pageno=' + index + '&poll=' + gettimeofday(), function (body) {
+  fetch('/get/instantvaldata.cgi?pageno=' + index + '&poll=' + gettimeofday(), function(body) {
     var text = body;
     try {
       var pageno = (text.match(/javascript:parent.pageno = ([0-9]+)/))[1];
       pageno = parseInt(pageno);
       for (var n = 0; n < 10; n++) {
-        detailNames[n + pageno * 10] = get_key(text, 'name' + n);
         var v = get_key(text, 'value' + n);
         if (v == '-W' || v == '') {
           v = 0;
