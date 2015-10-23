@@ -1,11 +1,13 @@
+#!/usr/bin/env node
+
 /**
  * @license aiseg_watch v0.0.1
  * (c) 2015 Bugfire http://ol.eek.jp/blog/
  * License: MIT
  */
 
-var config = require('./config');
-var util = require('./util');
+var config = require('/data/config.js');
+var util = require('./util.js');
 
 var http = require('http');
 

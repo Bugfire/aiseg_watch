@@ -1,0 +1,19 @@
+{
+  "name": "aiseg_watch",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bugfire/aiseg_watch.git"
+  },
+  "main": "aiseg_watch.js",
+  "engines": {
+    "node": ">= 0.12.7"
+  },
+  "scripts": {
+    "test": "nodeunit aiseg_watch.js"
+  },
+  "dependencies": {
+    "cron": "^1.0.9",
+    "mysql": "^2.9.0"
+  }
+}
