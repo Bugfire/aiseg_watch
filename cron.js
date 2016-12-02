@@ -9,13 +9,13 @@ function kick() {
         process.stdout.write(data);
     });
     proc.once('error', function() {
-        process.stdout.write('error.');
+        //process.stdout.write('error.');
     });
     proc.once('close', function() {
-        process.stdout.write('close.');
+        //process.stdout.write('close.');
     });
     proc.once('exit', function() {
-        process.stdout.write('exit.');
+        //process.stdout.write('exit.');
     });
 };
 
