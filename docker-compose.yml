@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  app:
+    image: bugfire/aiseg_watch:latest
+    volumes:
+      - "./config:/config:ro"
+    restart: always
+    cpu_shares: 20
+    mem_limit: "2048m"
+    build:
+      context: .
