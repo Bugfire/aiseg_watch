@@ -126,7 +126,7 @@ const wrappedRun = async (): Promise<void> => {
 const kick = async (): Promise<void> => {
   await wrappedRun();
   if (!IS_DRYRUN) {
-    new cron.CronJob("* * * * * *", wrappedRun, undefined, true);
+    new cron.CronJob("20 * * * * *", wrappedRun, undefined, true);
   }
 };
 
