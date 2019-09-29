@@ -30,18 +30,18 @@ interface MyConfig {
 
 const MyConfigType: ConfigType = {
   aiseg: AisegConfigType,
-  aiseg_page: "number",
+  aiseg_page: 0,
   db: DBConfigType,
-  timediff: "number",
+  timediff: 0,
   aiseg_db: {
-    main: "string",
-    main_name: "string",
-    detail: "string",
-    detail_name: "string"
+    main: "",
+    main_name: "",
+    detail: "",
+    detail_name: ""
   },
-  mainKeys_array: "string",
-  mainKeysDB_array: "string",
-  mainKeysName_array: "string"
+  mainKeys: [""],
+  mainKeysDB: [""],
+  mainKeysName: [""]
 };
 
 /* eslint-enable @typescript-eslint/camelcase */
