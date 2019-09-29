@@ -22,16 +22,6 @@ const gettimeofday = (): number => {
   return 0 | (Date.now() / 1000);
 };
 
-const getCurrentTime = (): string => {
-  return (
-    new Date(Date.now() + CONFIG.timediff * 1000)
-      .toISOString()
-      .replace(/T/, " ")
-      .replace(/\..+/, "")
-      .slice(0, -1) + "0"
-  );
-};
-
 const checkTop = async (): Promise<void> => {
   await Fetch(`/get/top.cgi?v=${gettimeofday()}`, CONFIG.aiseg);
 };
@@ -89,7 +79,7 @@ const buildQueries = (
   detailValues: number[]
 ): string[] => {
   const queries = [];
-  const currentTime = getCurrentTime();
+  const currentTime = dbUtil.getDateJST();
 
   queries.push(
     `INSERT INTO ${CONFIG.db.name}.${CONFIG.aiseg_db.main} ` +

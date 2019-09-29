@@ -1,5 +1,5 @@
 /**
- * @license remo_watch
+ * @license aiseg_watch
  * (c) 2019 Bugfire https://bugfire.dev/
  * License: MIT
  */
