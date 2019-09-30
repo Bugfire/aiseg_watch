@@ -2,7 +2,7 @@ version: '2'
 
 services:
   app:
-    image: bugfire/aiseg_watch:latest
+    image: bugfire/aiseg_watch:0.1.4
     volumes:
       - "/share/Docker/Volumes/aiseg_watch/config:/config:ro"
     restart: always
