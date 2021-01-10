@@ -19,10 +19,8 @@ const run = async (): Promise<void> => {
     `CREATE TABLE ${CONFIG.db.name}.${CONFIG.aiseg_db.main_name} (Tag VARCHAR(32) NOT NULL PRIMARY KEY, Name TEXT NOT NULL);`,
     `CREATE TABLE ${CONFIG.db.name}.${
       CONFIG.aiseg_db.main
-    } (Datetime DATETIME NOT NULL PRIMARY KEY, ${CONFIG.mainKeysDB.join(
-      " FLOAT, "
-    )} FLOAT);`,
-    `CREATE TABLE ${CONFIG.db.name}.${CONFIG.aiseg_db.detail_name} (Tag VARCHAR(32) NOT NULL PRIMARY KEY, Name TEXT NOT NULL);`
+    } (Datetime DATETIME NOT NULL PRIMARY KEY, ${CONFIG.mainKeysDB.join(" FLOAT, ")} FLOAT);`,
+    `CREATE TABLE ${CONFIG.db.name}.${CONFIG.aiseg_db.detail_name} (Tag VARCHAR(32) NOT NULL PRIMARY KEY, Name TEXT NOT NULL);`,
   ];
 
   {

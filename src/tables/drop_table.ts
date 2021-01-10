@@ -23,7 +23,7 @@ const run = async (): Promise<void> => {
     `DELETE FROM ${CONFIG.db.name}.${CONFIG.aiseg_db.main};`,
     `DROP TABLE ${CONFIG.db.name}.${CONFIG.aiseg_db.main};`,
     `DELETE FROM ${CONFIG.db.name}.${CONFIG.aiseg_db.detail};`,
-    `DROP TABLE ${CONFIG.db.name}.${CONFIG.aiseg_db.detail};`
+    `DROP TABLE ${CONFIG.db.name}.${CONFIG.aiseg_db.detail};`,
   ];
 
   console.log(queries);

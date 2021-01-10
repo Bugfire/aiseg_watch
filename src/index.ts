@@ -32,10 +32,7 @@ const getMain = async (): Promise<number[]> => {
     const m = text.match(matchStr);
     return m === null || m[1] === "-" ? 0 : parseFloat(m[1]);
   };
-  const buf = await Fetch(
-    `/get/top_val.cgi?poll=${gettimeofday()}`,
-    CONFIG.aiseg
-  );
+  const buf = await Fetch(`/get/top_val.cgi?poll=${gettimeofday()}`, CONFIG.aiseg);
   const body = buf.toString();
   const main: number[] = [];
   for (let i = 0; i < CONFIG.mainKeys.length; i++) {
@@ -59,25 +56,18 @@ const getDetail = async (): Promise<number[]> => {
   };
   const detail: number[] = [];
   for (let page = 0; page < CONFIG.aiseg_page; page++) {
-    const buf = await Fetch(
-      `/get/instantvaldata.cgi?pageno=${page}&poll=${gettimeofday()}`,
-      CONFIG.aiseg
-    );
+    const buf = await Fetch(`/get/instantvaldata.cgi?pageno=${page}&poll=${gettimeofday()}`, CONFIG.aiseg);
     const body = buf.toString();
     const pageNo = getPageNo(body);
     for (let n = 0; n < 10; n++) {
       const v = getKey(body, `value${n}`);
-      detail[n + pageNo * 10] =
-        v === "-W" || v === "" ? 0 : parseInt(v.slice(0, -1));
+      detail[n + pageNo * 10] = v === "-W" || v === "" ? 0 : parseInt(v.slice(0, -1));
     }
   }
   return detail;
 };
 
-const buildQueries = (
-  mainValues: number[],
-  detailValues: number[]
-): string[] => {
+const buildQueries = (mainValues: number[], detailValues: number[]): string[] => {
   const queries = [];
   const currentTime = dbUtil.getDateJST();
 

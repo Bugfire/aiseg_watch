@@ -26,8 +26,6 @@ interface MyConfig {
   mainKeysName: string[];
 }
 
-/* eslint-disable @typescript-eslint/camelcase */
-
 const MyConfigType: ConfigType = {
   aiseg: AisegConfigType,
   aiseg_page: 0,
@@ -37,14 +35,12 @@ const MyConfigType: ConfigType = {
     main: "",
     main_name: "",
     detail: "",
-    detail_name: ""
+    detail_name: "",
   },
   mainKeys: [""],
   mainKeysDB: [""],
-  mainKeysName: [""]
+  mainKeysName: [""],
 };
-
-/* eslint-enable @typescript-eslint/camelcase */
 
 export const LoadConfig = (filename: string): MyConfig => {
   return LC<MyConfig>(fs.readFileSync(filename, "utf8"), MyConfigType);

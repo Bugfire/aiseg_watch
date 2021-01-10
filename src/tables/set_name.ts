@@ -39,10 +39,7 @@ const getDetail = async (): Promise<string[]> => {
   };
   const detail: string[] = [];
   for (let page = 0; page < CONFIG.aiseg_page; page++) {
-    const buf = await Fetch(
-      `/get/instantvaldata.cgi?pageno=${page}&poll=${gettimeofday()}`,
-      CONFIG.aiseg
-    );
+    const buf = await Fetch(`/get/instantvaldata.cgi?pageno=${page}&poll=${gettimeofday()}`, CONFIG.aiseg);
     const body = buf.toString();
     const pageNo = getPageNo(body);
     for (let n = 0; n < 10; n++) {
@@ -56,7 +53,7 @@ const getDetail = async (): Promise<string[]> => {
 const buildQueries = (detail: string[]): string[] => {
   const queries = [
     `DELETE FROM ${CONFIG.db.name}.${CONFIG.aiseg_db.main_name};`,
-    `DELETE FROM ${CONFIG.db.name}.${CONFIG.aiseg_db.detail_name};`
+    `DELETE FROM ${CONFIG.db.name}.${CONFIG.aiseg_db.detail_name};`,
   ];
 
   for (let index = 0; index < CONFIG.mainKeysDB.length; index++) {
